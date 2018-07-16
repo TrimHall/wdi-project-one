@@ -29,28 +29,7 @@ $(() => {
   const verseGuitarRythmC = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const verseGuitarRythmD = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  const verseRhytmA = [];
-  const verseRhytmB = [];
-  const verseRhytmC = [];
-  const verseRhytmD = [];
-
-  // const odesza = [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0,
-  //   1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1,
-  //   1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0,
-  //   1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1,
-  //   1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0,
-  //   1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1,
-  //   1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0,
-  //   1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1,
-  //   1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, // VERSE KICKS IN HERE //
-  //   0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1,
-  //   1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-  //   0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1,  // HALF WAY THROUGH VERSE // RYTHM CHANGE //
-  //   1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1];
-
-  //********************************************************************************************************************************
   //******************************************** THIS WILL PLAY THE SONG ********************************************************
-  //********************************************************************************************************************************
   const startBtn = document.querySelector('button');
 
   startBtn.addEventListener('click', () => {
@@ -69,15 +48,15 @@ $(() => {
   function runProgram() {
     const timing = setInterval(() => {
       fireNotesA();
+      fireNotesB();
+      fireNotesC();
+      fireNotesD();
     }, 250);
     setTimeout(() => {
       clearInterval(timing);
     }, 51500);
   }
-  //********************************************************************************************************************************
   //******************************************** THIS WILL TRIGGER THE DIVS ********************************************************
-  //********************************************************************************************************************************
-
 
   const odesza = [1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0,
     1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1,
@@ -109,11 +88,7 @@ $(() => {
       console.log('End of song');
     }
   }
-
-  // ********************************************************************************************************************************
-  // ****************************************** CONSTRUCTOR FUNCTION TO CREATE/KILL NOTES ************************************************
-  // ********************************************************************************************************************************
-  // needs to create a div every time the console logs 'note' in the fireNotes() function.
+  // *************************************************** CREATE/KILL NOTES **********************************************************
   const container = document.querySelector('.container');
 
   function create() {
@@ -130,107 +105,114 @@ $(() => {
     }, 4000);
     newNote.getBoundingClientRect();
     console.log(newNote.top);
-    
   }
-  // ********************************************************************************************************************************
-  // ************************************************* HIT OR MISS ******************************************************************
-  // ********************************************************************************************************************************
-
-
-
-
-
-
-
-
-  //********************************************************************************************************************************
   //*************************************************** BUTTON B *******************************************************************
-  //********************************************************************************************************************************
 
-  const buttonB = [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0,
-    1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1,
-    1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0,
-    1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1];
-  // console.log(buttonB.length);
-  let iB = 0;
+  // const odesza = [];
+
+  let j = 0;
 
   function fireNotesB() {
-    if(buttonB[iB] === 1){
-      console.log('note');
-      moveNote();
-      iB++;
-    } else if(buttonB[iB] === 0) {
-      console.log('rest');
-      iB++;
+    if(odesza[j] === 1){
+      console.log('B');
+      createB();
+      // moveNote();
+      j++;
+    } else if(odesza[j] === 0) {
+      console.log('B rest');
+      j++;
     } else {
       console.log('End of song');
     }
   }
 
+  const containerB = document.querySelector('.container-b');
 
+  function createB() {
+    const newNote = document.createElement('div');
+    containerB.appendChild(newNote);
+    newNote.classList.add('note');
 
+    newNote.animate([
+      {transform: 'translateY(0px)'},
+      {transform: 'translateY(680px)'}
+    ], 4000);
+    setTimeout(() => {
+      newNote.remove();
+    }, 4000);
+    newNote.getBoundingClientRect();
+    console.log(newNote.top);
+  }
+  //*************************************************** BUTTON C *******************************************************************
 
+  // const odesza = [];
+  let k = 0;
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////// CODE GRAVEYARD... R.I.P FRIENDS /////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // testRythm.forEach(note => {
-  //   setTimeout(() => {
-  //     note === 1 ? console.log('fire') : console.log('rest');
-  //   }, 1000);
-  // });
-  //
-  // for(let i = 0; i === 0 || i === 1;){
-  //   if(testRythm[i] === 1){
-  //     setTimeout(() => {
-  //       console.log('fire');
-  //     }, 1000);
-  //     i++;
-  //
-  //   }
-  // }
-  //
-  // function fireNotes() {
-  //   testRythm.forEach(note => {
-  //     setTimeout(() => {
-  //       if(testRythm[note] === 1){
-  //         console.log('fire');
-  //       } else (console.log('rest'));
-  //     }, 1000);
-  //   });
-  // }
-  // fireNotes();
-  //
-  // for(i = 0; i >= 0; i++){
-  //   setInterval(() => {
-  //     i = 1 ? console.log('fire') : console.log('rest');
-  //   }, 500);
-  // }
-  //
-  //   alert("hi");
-  // for (var i = 0; i < 5; i++) {
-  //   (function (i) {
-  //     setTimeout(function () {
-  //       alert("hello");
-  //      }, 3000*i);
-  //     })(i);
-  //    };
-  //
-  // function fireNotes() {
-  //   setInterval(() => {
-  //     //the loop goes here
-  //   }, 500);
-  // }
-  //
-  // function startInterval() {
-  //   intervalName = setInterval(() => {
-  //     if(startTime === 1) {
-  //       stopInterval();
-  //       timer.classList.add('ringing');
-  //     }
-  //     decrement();
-  //   }, 1000);
-  // }
+  function fireNotesC() {
+    if(odesza[k] === 1){
+      console.log('C');
+      createC();
+      // moveNote();
+      k++;
+    } else if(odesza[k] === 0) {
+      console.log('C rest');
+      k++;
+    } else {
+      console.log('End of song');
+    }
+  }
 
+  const containerC = document.querySelector('.container-c');
 
+  function createC() {
+    const newNote = document.createElement('div');
+    containerC.appendChild(newNote);
+    newNote.classList.add('note');
+
+    newNote.animate([
+      {transform: 'translateY(0px)'},
+      {transform: 'translateY(680px)'}
+    ], 4000);
+    setTimeout(() => {
+      newNote.remove();
+    }, 4000);
+    newNote.getBoundingClientRect();
+    console.log(newNote.top);
+  }
+  //*************************************************** BUTTON D *******************************************************************
+
+  // const odesza = []
+  let l = 0;
+
+  function fireNotesD() {
+    if(odesza[l] === 1){
+      console.log('D');
+      createD();
+      // moveNote();
+      l++;
+    } else if(odesza[l] === 0) {
+      console.log('D rest');
+      l++;
+    } else {
+      console.log('End of song');
+    }
+  }
+
+  const containerD = document.querySelector('.container-d');
+
+  function createD() {
+    const newNote = document.createElement('div');
+    containerD.appendChild(newNote);
+    newNote.classList.add('note');
+
+    newNote.animate([
+      {transform: 'translateY(0px)'},
+      {transform: 'translateY(680px)'}
+    ], 4000);
+    setTimeout(() => {
+      newNote.remove();
+    }, 4000);
+    newNote.getBoundingClientRect();
+    console.log(newNote.top);
+  }
 });
