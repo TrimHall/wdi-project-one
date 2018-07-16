@@ -1,19 +1,23 @@
 .container {
+  position: relative;
+  top: 15px;
   height: 800px;
   width: 200px;
   background-color: blue;
 }
 
 .target {
-  height: 150px;
+  position: relative;
+  height: 20px;
   width: 180px;
   background-color: red;
-  margin-top: 600px;
+  bottom: -780px;
   margin-left: 10px;
 }
 
 .note {
-  height: 50px;
+  position: absolute;
+  height: 20px;
   width: 80px;
   margin: 0 auto;
   background-color: yellow;
