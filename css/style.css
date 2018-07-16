@@ -1,9 +1,18 @@
+/* body {
+  margin: 0 auto;
+} */
+
+.board {
+  display: flex;
+}
+
 .container {
   position: relative;
   top: 15px;
-  height: 800px;
+  height: 700px;
   width: 200px;
   background-color: blue;
+  border: 2px solid papayawhip;
 }
 
 .target {
@@ -11,7 +20,7 @@
   height: 20px;
   width: 180px;
   background-color: red;
-  bottom: -780px;
+  bottom: -680px;
   margin-left: 10px;
 }
 
@@ -19,6 +28,6 @@
   position: absolute;
   height: 20px;
   width: 80px;
-  margin: 0 auto;
+  margin-left: 60px;
   background-color: yellow;
 }
