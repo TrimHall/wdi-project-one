@@ -132,6 +132,7 @@ $(() => {
   }
   // *************************************************** CREATE/KILL NOTES BUTTON A **********************************************************
   const container = document.querySelector('.container');
+  const targetA = document.querySelector('.target-a');
 
   const notesInPlay = [];
 
@@ -166,11 +167,16 @@ $(() => {
     if(position >= 640 && position <= 680){
       score = score+100;
       updateScore();
-      console.log(score);
+      targetA.classList.add('hit');
+      setTimeout(() => {
+        targetA.classList.remove('hit');
+      }, 180);
     } else {
       console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
       missedNote.play();
+      score = score-100;
+      updateScore();
 
     }
   }
@@ -230,6 +236,8 @@ $(() => {
       console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note2.mp3');
       missedNote.play();
+      score = score-100;
+      updateScore();
     }
   }
   //*************************************************** BUTTON C *******************************************************************
@@ -288,6 +296,8 @@ $(() => {
       console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note3.mp3');
       missedNote.play();
+      score = score-100;
+      updateScore();
     }
   }
   //*************************************************** BUTTON D *******************************************************************
@@ -346,6 +356,8 @@ $(() => {
       console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
       missedNote.play();
+      score = score-100;
+      updateScore();
     }
   }
   //*************************************************** COLLISSION *******************************************************************
