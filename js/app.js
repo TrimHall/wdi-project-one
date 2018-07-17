@@ -29,11 +29,18 @@ $(() => {
   // const verseGuitarRythmC = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   // const verseGuitarRythmD = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+  //************************************************* MISSED NOTES **************************************************************
+
+  const missedNote = document.querySelector('.miss');
+  missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
+
+
+
   //******************************************** THIS WILL PLAY THE SONG ********************************************************
   const startBtn = document.querySelector('button');
 
   startBtn.addEventListener('click', () => {
-    const audio = document.querySelector('audio');
+    const audio = document.querySelector('.main');
     audio.setAttribute('src', 'sounds/SayMyName120Bpm.mp3');
     audio.play();
     setTimeout(() => {
@@ -93,13 +100,22 @@ $(() => {
     }, 51500);
   }
 
+  //************************************************ SCORE KEEPER ********************************************************************
+
+  const scoreBox = document.querySelector('.score');
+
   let score = 0;
+
+  function updateScore() {
+    scoreBox.textContent = `Player 1 Score: ${score}`;
+  }
+
   //************************************************ TEST CODE TO REFACTOR  ********************************************************
 
 
 
   //******************************************** THIS WILL TRIGGER THE DIVS ********************************************************
-  console.log(odesza.length);
+  // console.log(odesza.length);
   let i = 0;
 
   function fireNotesA() {
@@ -146,13 +162,16 @@ $(() => {
     //this is run when you press z
     //TODO change the css of the target zone
     const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
-    console.log(position);
+    // console.log(position);
     if(position >= 640 && position <= 680){
-      // console.log('HIT HIT HIT HIT HIT');
-      score = score+1;
+      score = score+100;
+      updateScore();
       console.log(score);
     } else {
       console.log('MISS MISS MISS MISS MISS');
+      missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
+      missedNote.play();
+
     }
   }
   //*************************************************** BUTTON B *******************************************************************
@@ -201,14 +220,16 @@ $(() => {
   function checkColB() {
     //this is run when you press x
     //TODO change the css of the target zone
-    console.log(notesInPlayB[0]);
+    // console.log(notesInPlayB[0]);
     const position = parseFloat(window.getComputedStyle(notesInPlayB[0]).transform.split(',')[5]);
     if(position >= 640 && position <= 680){
-      // console.log('HIT HIT HIT HIT HIT');
-      score = score+1;
+      score = score+100;
+      updateScore();
       console.log(score);
     } else {
       console.log('MISS MISS MISS MISS MISS');
+      missedNote.setAttribute('src', 'sounds/bum-note2.mp3');
+      missedNote.play();
     }
   }
   //*************************************************** BUTTON C *******************************************************************
@@ -257,14 +278,16 @@ $(() => {
   function checkColC() {
     //this is run when you press x
     //TODO change the css of the target zone
-    console.log(notesInPlayC[0]);
+    // console.log(notesInPlayC[0]);
     const position = parseFloat(window.getComputedStyle(notesInPlayC[0]).transform.split(',')[5]);
     if(position >= 640 && position <= 680){
-      // console.log('HIT HIT HIT HIT HIT');
-      score = score+1;
+      score = score+100;
+      updateScore();
       console.log(score);
     } else {
       console.log('MISS MISS MISS MISS MISS');
+      missedNote.setAttribute('src', 'sounds/bum-note3.mp3');
+      missedNote.play();
     }
   }
   //*************************************************** BUTTON D *******************************************************************
@@ -313,14 +336,16 @@ $(() => {
   function checkColD() {
     //this is run when you press x
     //TODO change the css of the target zone
-    console.log(notesInPlayD[0]);
+    // console.log(notesInPlayD[0]);
     const position = parseFloat(window.getComputedStyle(notesInPlayD[0]).transform.split(',')[5]);
     if(position >= 640 && position <= 680){
-      // console.log('HIT HIT HIT HIT HIT');
-      score = score+1;
+      score = score+100;
+      updateScore();
       console.log(score);
     } else {
       console.log('MISS MISS MISS MISS MISS');
+      missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
+      missedNote.play();
     }
   }
   //*************************************************** COLLISSION *******************************************************************

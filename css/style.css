@@ -50,4 +50,10 @@ button {
   background-color: grey;
   border-radius: 8px;
 
+}.score {
+  height: 35px;
+  width: 200px;
+  color: #a15756;
+  margin-top: 15px;
+  padding-top: 5px;
 }
