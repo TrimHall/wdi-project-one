@@ -19,15 +19,15 @@ $(() => {
   // The 1s will trigger a note to move down the screen. 0s will not. This will make a rythm.
 
 
-  const superMassiveA = [1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // this will be ENTIRE SONG button 1 commands
-  const superMassiveB = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // this will be ENTIRE SONG button 2 commands
-  const superMassiveC = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // this will be ENTIRE SONG button 3 commands
-  const superMassiveD = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // this will be ENTIRE SONG button 4 commands
-
-  const verseGuitarRythmA = [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  const verseGuitarRythmB = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  const verseGuitarRythmC = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  const verseGuitarRythmD = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  // const superMassiveA = [1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // this will be ENTIRE SONG button 1 commands
+  // const superMassiveB = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // this will be ENTIRE SONG button 2 commands
+  // const superMassiveC = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // this will be ENTIRE SONG button 3 commands
+  // const superMassiveD = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // this will be ENTIRE SONG button 4 commands
+  //
+  // const verseGuitarRythmA = [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  // const verseGuitarRythmB = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  // const verseGuitarRythmC = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  // const verseGuitarRythmD = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   //******************************************** THIS WILL PLAY THE SONG ********************************************************
   const startBtn = document.querySelector('button');
@@ -44,7 +44,6 @@ $(() => {
   // SPACE RESETS THE TRACK - NEEDS A DEBUG
 
   //*******************************************************************************************************************************************
-
   const odesza = [1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0,
     1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1,
     1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0,
@@ -61,7 +60,7 @@ $(() => {
 
   //*******************************************************************************************************************************************
   const odeszaD = [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-    1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1];
     //*******************************************************************************************************************************************
@@ -93,148 +92,238 @@ $(() => {
       clearInterval(timing);
     }, 51500);
   }
+
+  let score = 0;
+  //************************************************ TEST CODE TO REFACTOR  ********************************************************
+
+
+
   //******************************************** THIS WILL TRIGGER THE DIVS ********************************************************
   console.log(odesza.length);
   let i = 0;
 
   function fireNotesA() {
     if(odeszaA[i] === 1){
-      console.log('note');
+      // console.log('note');
       create();
-      // moveNote();
       i++;
     } else if(odeszaA[i] === 0) {
-      console.log('rest');
+      // console.log('rest');
       i++;
     } else {
-      console.log('End of song');
+      // console.log('End of song');
     }
   }
-  // *************************************************** CREATE/KILL NOTES **********************************************************
+  // *************************************************** CREATE/KILL NOTES BUTTON A **********************************************************
   const container = document.querySelector('.container');
+
+  const notesInPlay = [];
 
   function create() {
     const newNote = document.createElement('div');
     container.appendChild(newNote);
     newNote.classList.add('note');
+    notesInPlay.push(newNote);
+
 
     newNote.animate([
       {transform: 'translateY(0px)'},
       {transform: 'translateY(680px)'}
     ], 4000);
     setTimeout(() => {
+      notesInPlay.splice(0, 1);
       newNote.remove();
     }, 4000);
-    newNote.getBoundingClientRect();
-    console.log(newNote.top);
+  }
+
+  $(window).keydown(function(e) {
+    if (e.which === 90) {
+      checkColA();
+    }
+  });
+
+  function checkColA() {
+    //this is run when you press z
+    //TODO change the css of the target zone
+    const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
+    console.log(position);
+    if(position >= 640 && position <= 680){
+      // console.log('HIT HIT HIT HIT HIT');
+      score = score+1;
+      console.log(score);
+    } else {
+      console.log('MISS MISS MISS MISS MISS');
+    }
   }
   //*************************************************** BUTTON B *******************************************************************
-
-  // const odesza = [];
 
   let j = 0;
 
   function fireNotesB() {
     if(odeszaB[j] === 1){
-      console.log('B');
+      // console.log('B');
       createB();
-      // moveNote();
       j++;
     } else if(odeszaB[j] === 0) {
-      console.log('B rest');
+      // console.log('B rest');
       j++;
     } else {
-      console.log('End of song');
+      // console.log('End of song');
     }
   }
 
   const containerB = document.querySelector('.container-b');
 
+  const notesInPlayB = [];
+
   function createB() {
     const newNote = document.createElement('div');
     containerB.appendChild(newNote);
     newNote.classList.add('note');
+    notesInPlayB.push(newNote);
 
     newNote.animate([
       {transform: 'translateY(0px)'},
       {transform: 'translateY(680px)'}
     ], 4000);
     setTimeout(() => {
+      notesInPlayB.splice(0, 1);
       newNote.remove();
     }, 4000);
-    // newNote.getBoundingClientRect();
-    // console.log(newNote.top);
+  }
+
+  $(window).keydown(function(e) {
+    if (e.which === 88) {
+      checkColB();
+    }
+  });
+
+  function checkColB() {
+    //this is run when you press x
+    //TODO change the css of the target zone
+    console.log(notesInPlayB[0]);
+    const position = parseFloat(window.getComputedStyle(notesInPlayB[0]).transform.split(',')[5]);
+    if(position >= 640 && position <= 680){
+      // console.log('HIT HIT HIT HIT HIT');
+      score = score+1;
+      console.log(score);
+    } else {
+      console.log('MISS MISS MISS MISS MISS');
+    }
   }
   //*************************************************** BUTTON C *******************************************************************
 
-  // const odesza = [];
   let k = 0;
 
   function fireNotesC() {
     if(odeszaC[k] === 1){
-      console.log('C');
+      // console.log('C');
       createC();
-      // moveNote();
       k++;
     } else if(odeszaC[k] === 0) {
-      console.log('C rest');
+      // console.log('C rest');
       k++;
     } else {
-      console.log('End of song');
+      // console.log('End of song');
     }
   }
 
   const containerC = document.querySelector('.container-c');
 
+  const notesInPlayC = [];
+
   function createC() {
     const newNote = document.createElement('div');
     containerC.appendChild(newNote);
     newNote.classList.add('note');
+    notesInPlayC.push(newNote);
 
     newNote.animate([
       {transform: 'translateY(0px)'},
       {transform: 'translateY(680px)'}
     ], 4000);
     setTimeout(() => {
+      notesInPlayC.splice(0, 1);
       newNote.remove();
     }, 4000);
-    // newNote.getBoundingClientRect();
-    // console.log(newNote.top);
+  }
+
+  $(window).keydown(function(e) {
+    if (e.which === 67) {
+      checkColC();
+    }
+  });
+
+  function checkColC() {
+    //this is run when you press x
+    //TODO change the css of the target zone
+    console.log(notesInPlayC[0]);
+    const position = parseFloat(window.getComputedStyle(notesInPlayC[0]).transform.split(',')[5]);
+    if(position >= 640 && position <= 680){
+      // console.log('HIT HIT HIT HIT HIT');
+      score = score+1;
+      console.log(score);
+    } else {
+      console.log('MISS MISS MISS MISS MISS');
+    }
   }
   //*************************************************** BUTTON D *******************************************************************
 
-  // const odesza = []
   let l = 0;
 
   function fireNotesD() {
     if(odeszaD[l] === 1){
-      console.log('D');
+      // console.log('D');
       createD();
-      // moveNote();
       l++;
     } else if(odeszaD[l] === 0) {
-      console.log('D rest');
+      // console.log('D rest');
       l++;
     } else {
-      console.log('End of song');
+      // console.log('End of song');
     }
   }
 
   const containerD = document.querySelector('.container-d');
 
+  const notesInPlayD = [];
+
   function createD() {
     const newNote = document.createElement('div');
     containerD.appendChild(newNote);
     newNote.classList.add('note');
+    notesInPlayD.push(newNote);
 
     newNote.animate([
       {transform: 'translateY(0px)'},
       {transform: 'translateY(680px)'}
     ], 4000);
     setTimeout(() => {
+      notesInPlayD.splice(0, 1);
       newNote.remove();
     }, 4000);
-    // newNote.getBoundingClientRect();
-    // console.log(newNote.top);
   }
+
+  $(window).keydown(function(e) {
+    if (e.which === 86) {
+      checkColD();
+    }
+  });
+
+  function checkColD() {
+    //this is run when you press x
+    //TODO change the css of the target zone
+    console.log(notesInPlayD[0]);
+    const position = parseFloat(window.getComputedStyle(notesInPlayD[0]).transform.split(',')[5]);
+    if(position >= 640 && position <= 680){
+      // console.log('HIT HIT HIT HIT HIT');
+      score = score+1;
+      console.log(score);
+    } else {
+      console.log('MISS MISS MISS MISS MISS');
+    }
+  }
+  //*************************************************** COLLISSION *******************************************************************
+
+
 });

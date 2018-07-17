@@ -22,12 +22,12 @@ body {
   margin: 0 2px;
 }
 
-.target  {
+.target-a, .target-b, .target-c, .target-d  {
   position: relative;
-  height: 20px;
+  height: 40px;
   width: 180px;
   background-color: #323131;
-  bottom: -680px;
+  bottom: -660px;
   margin-left: 10px;
   border-radius: 10px;
 }
@@ -39,9 +39,11 @@ body {
   margin-left: 60px;
   background-color: yellow;
   border-radius: 10px;
+  top: 0px;
 }
 
 button {
+  position: absolute;
   border: 2px solid black;
   margin-top: 25px;
   padding: 10px;
