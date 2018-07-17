@@ -37,16 +37,29 @@ $(() => {
 
 
   //******************************************** THIS WILL PLAY THE SONG ********************************************************
-  const startBtn = document.querySelector('button');
+  const body = document.querySelector('body');
+  const loadPage = document.createElement('div');
+  loadPage.classList.add('load');
+  // const logo = document.createElement('img');
+  // logo.classList.add('image');
+  // logo.setAttribute('src', 'images/odesza-logo.png');
+  // logo.classList.add('hide');
 
-  startBtn.addEventListener('click', () => {
+  loadPage.addEventListener('click', event => {
     const audio = document.querySelector('.main');
     audio.setAttribute('src', 'sounds/SayMyName120Bpm.mp3');
+
     audio.play();
     setTimeout(() => {
       runProgram();
     },4000 );
+    event.target.classList.add('hide');
   });
+  body.appendChild(loadPage);
+  // loadPage.appendChild(logo);
+
+
+
 
   // SPACE RESETS THE TRACK - NEEDS A DEBUG
 
@@ -94,6 +107,7 @@ $(() => {
       fireNotesB();
       fireNotesC();
       fireNotesD();
+      updateScore();
     }, 250);
     setTimeout(() => {
       clearInterval(timing);
@@ -101,7 +115,6 @@ $(() => {
   }
 
   //************************************************ SCORE KEEPER ********************************************************************
-
   const scoreBox = document.querySelector('.score');
 
   let score = 0;
@@ -109,10 +122,6 @@ $(() => {
   function updateScore() {
     scoreBox.textContent = `Player 1 Score: ${score}`;
   }
-
-  //************************************************ TEST CODE TO REFACTOR  ********************************************************
-
-
 
   //******************************************** THIS WILL TRIGGER THE DIVS ********************************************************
   // console.log(odesza.length);
@@ -172,7 +181,6 @@ $(() => {
         targetA.classList.remove('hit');
       }, 180);
     } else {
-      console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
       missedNote.play();
       score = score-100;
@@ -198,6 +206,7 @@ $(() => {
   }
 
   const containerB = document.querySelector('.container-b');
+  const targetB = document.querySelector('.target-b');
 
   const notesInPlayB = [];
 
@@ -231,7 +240,10 @@ $(() => {
     if(position >= 640 && position <= 680){
       score = score+100;
       updateScore();
-      console.log(score);
+      targetB.classList.add('hit');
+      setTimeout(() => {
+        targetB.classList.remove('hit');
+      }, 180);
     } else {
       console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note2.mp3');
@@ -258,6 +270,7 @@ $(() => {
   }
 
   const containerC = document.querySelector('.container-c');
+  const targetC = document.querySelector('.target-c');
 
   const notesInPlayC = [];
 
@@ -291,7 +304,10 @@ $(() => {
     if(position >= 640 && position <= 680){
       score = score+100;
       updateScore();
-      console.log(score);
+      targetC.classList.add('hit');
+      setTimeout(() => {
+        targetC.classList.remove('hit');
+      }, 180);
     } else {
       console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note3.mp3');
@@ -318,6 +334,7 @@ $(() => {
   }
 
   const containerD = document.querySelector('.container-d');
+  const targetD = document.querySelector('.target-d');
 
   const notesInPlayD = [];
 
@@ -351,7 +368,10 @@ $(() => {
     if(position >= 640 && position <= 680){
       score = score+100;
       updateScore();
-      console.log(score);
+      targetD.classList.add('hit');
+      setTimeout(() => {
+        targetD.classList.remove('hit');
+      }, 180);
     } else {
       console.log('MISS MISS MISS MISS MISS');
       missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
