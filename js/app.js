@@ -116,10 +116,6 @@ $(() => {
   // loadPage.appendChild(logo);
 
   // SPACE RESETS THE TRACK - NEEDS A DEBUG
-
-
-
-  //******************************************** THIS IS REGULATING THE TIMING *****************************************************
   //***************************************** 250 = QUARTER NOTES, 125 = 8TH NOTES *************************************************
   function runProgram() {
     const timing = setInterval(() => {
@@ -152,8 +148,17 @@ $(() => {
   }
   // *************************************************** CREATE/KILL NOTES BUTTON A **********************************************************
   const container = document.querySelector('.container');
+  const containerB = document.querySelector('.container-b');
+  const containerC = document.querySelector('.container-c');
+  const containerD = document.querySelector('.container-d');
   const targetA = document.querySelector('.target-a');
+  const targetB = document.querySelector('.target-b');
+  const targetC = document.querySelector('.target-c');
+  const targetD = document.querySelector('.target-d');
   const notesInPlay = [];
+  const notesInPlayB = [];
+  const notesInPlayC = [];
+  const notesInPlayD = [];
 
   function create(container, notesInPlay) {
     const newNote = document.createElement('div');
@@ -200,32 +205,17 @@ $(() => {
     }
   }
 
-  //*************************************************** BUTTON B *******************************************************************
-  const containerB = document.querySelector('.container-b');
-  const targetB = document.querySelector('.target-b');
-  const notesInPlayB = [];
-
   function fireNotesB() {
     if(odeszaB[i] === 1){
       create(containerB, notesInPlayB);
     }
   }
 
-  //*************************************************** BUTTON C *******************************************************************
-  const containerC = document.querySelector('.container-c');
-  const targetC = document.querySelector('.target-c');
-  const notesInPlayC = [];
-
   function fireNotesC() {
     if(odeszaC[i] === 1){
       create(containerC, notesInPlayC);
     }
   }
-
-  //*************************************************** BUTTON D *******************************************************************
-  const containerD = document.querySelector('.container-d');
-  const targetD = document.querySelector('.target-d');
-  const notesInPlayD = [];
 
   function fireNotesD() {
     if(odeszaD[i] === 1){
