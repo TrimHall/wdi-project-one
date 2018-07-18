@@ -240,9 +240,13 @@ $(() => {
     if(currentStreak === 20) {
       soundEffect.setAttribute('src', 'sounds/crowd-cheer.mp3');
       soundEffect.play();
+      console.log(currentStreak);
     } else if (currentStreak === 30) {
-      // target.container.
-    } else if (currentStreak === 50) {
+      console.log(currentStreak);
+    } else if (currentStreak === 40) {
+      score = score+1000;
+      console.log(currentStreak);
+    }else if (currentStreak === 50) {
       board.classList.add('shake');
     }
   }
