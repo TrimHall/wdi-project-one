@@ -60,14 +60,17 @@ body {
     font-size: 25px;
     justify-content: center;
     .winning {
-      height: 45px;
-      width: 300px;
-      color: green;
-      margin-top: 15px;
-      margin-left: 500px;
+      height: 350px;
+      width: 6600px;
+      color: #C6BE405;
+      // margin-top: 15px;
+      // margin-left: 500px;
       padding-top: 5px;
       font-size: 30px;
       justify-content: center;
+      position: absolute;
+      margin: o auto;
+      z-index: 1
     }
   }
   .shake {
@@ -93,7 +96,7 @@ body {
 
 
 .image{
-position: absolute;
+position: relative;
 width: 50%;
 margin-left: 25%;
 margin-top: 10vh;

@@ -54,14 +54,15 @@ body {
     font-size: 25px;
     justify-content: center; }
     body .score .winning {
-      height: 45px;
-      width: 300px;
-      color: green;
-      margin-top: 15px;
-      margin-left: 500px;
+      height: 350px;
+      width: 6600px;
+      color: #C6BE405;
       padding-top: 5px;
       font-size: 30px;
-      justify-content: center; }
+      justify-content: center;
+      position: absolute;
+      margin: o auto;
+      z-index: 1; }
   body .shake {
     animation: shake 0.25s;
     animation-iteration-count: infinite; }
@@ -89,7 +90,7 @@ body {
   100% {
     transform: translate(1px, -2px) rotate(-0.5deg); } }
 .image {
-  position: absolute;
+  position: relative;
   width: 50%;
   margin-left: 25%;
   margin-top: 10vh;

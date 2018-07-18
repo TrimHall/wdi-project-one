@@ -216,7 +216,7 @@ $(() => {
   function checkCol(notesInPlay, target) {
     const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
     // console.log(position);
-    if(position >= 620 && position <= 660){
+    if(position >= 610 && position <= 670){
       score = score+100;
       currentStreak = currentStreak+1;
       target.classList.add('hit');
@@ -235,6 +235,15 @@ $(() => {
   }
 
   //******************************************** WIN STREAKS *************************
+
+  //TO DO:
+  //sort out some great/good/perfect animations
+  //animate the notes to pulse
+  //progress bar up the side to show where the next streak is?
+  //double scoring from cS-40 upwards
+  //
+
+
   let currentStreak = 0;
   function checkCurrentStreak () {
     if(currentStreak === 20) {
@@ -245,6 +254,10 @@ $(() => {
       console.log(currentStreak);
     } else if (currentStreak === 40) {
       score = score+1000;
+      scoreSpan.classList.add('winning'); // winning animate to center to bring score up
+      setTimeout(() => {
+        scoreSpan.classList.remove('winning');
+      }, 3000);
       console.log(currentStreak);
     }else if (currentStreak === 50) {
       board.classList.add('shake');
