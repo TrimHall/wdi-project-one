@@ -1,90 +1,126 @@
 body {
   width: 1200px;
   margin: 0 auto;
-  background-color: black;
-}
-
-.board {
-  display: flex;
-  justify-content: center;
-  background-image: url('../images/background2.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  margin-top: 25px;
-}
-
-.container, .container-b, .container-c, .container-d {
-  position: relative;
-  height: 700px;
-  width: 200px;
-  background: rgba(40,40,40,0.3);
-  margin: 0 2px;
-}
-
-.target-a, .target-b, .target-c, .target-d  {
-  position: relative;
-  height: 50px;
-  width: 180px;
-  background-color: #323131;
-  bottom: -650px;
-  margin-left: 10px;
-  border-radius: 10px;
-  transition: background-color 0.1s;
-}
-.hit {
-background-color: yellow;
-}
-
-.note {
-  position: absolute;
-  height: 20px;
-  width: 80px;
-  margin-left: 60px;
-  background-color: yellow;
-  border-radius: 10px;
-  top: 0px;
-}
-
-.score {
-  height: 35px;
-  width: 300px;
-  color: #a15756;
-  margin-top: 15px;
-  padding-top: 5px;
-  font-size: 25px;
-  justify-content: center;
-}
-
-.load{
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  z-index: 0.5;
-  position: absolute;
-  top: 0px;
-  transition: background-color 2s linear;
-}
-
-.hide {
-  background-color: #ffffff00;
-}
-/*
-.image{
+  background-color: black; }
+  body .board {
+    display: flex;
+    justify-content: center;
+    background-image: url("../images/background2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 25px; }
+    body .board .container, body .board .container-b, body .board .container-c, body .board .container-d {
+      position: relative;
+      height: 700px;
+      width: 200px;
+      background: rgba(40, 40, 40, 0.3);
+      margin: 0 2px; }
+      body .board .container .note, body .board .container-b .note, body .board .container-c .note, body .board .container-d .note {
+        position: absolute;
+        height: 20px;
+        width: 80px;
+        margin-left: 60px;
+        background-color: yellow;
+        border-radius: 10px;
+        top: 0px; }
+      body .board .container .target-a, body .board .container .target-b, body .board .container .target-c, body .board .container .target-d, body .board .container-b .target-a, body .board .container-b .target-b, body .board .container-b .target-c, body .board .container-b .target-d, body .board .container-c .target-a, body .board .container-c .target-b, body .board .container-c .target-c, body .board .container-c .target-d, body .board .container-d .target-a, body .board .container-d .target-b, body .board .container-d .target-c, body .board .container-d .target-d {
+        position: relative;
+        height: 50px;
+        width: 180px;
+        background-color: #323131;
+        bottom: -650px;
+        margin-left: 10px;
+        border-radius: 10px;
+        transition: background-color 0.1s; }
+      body .board .container .hit, body .board .container-b .hit, body .board .container-c .hit, body .board .container-d .hit {
+        background-color: yellow; }
+  body .load {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 0.5;
+    position: absolute;
+    top: 0px;
+    transition: background-color 2s linear; }
+  body .hide {
+    background-color: #ffffff00; }
+  body .score {
+    height: 35px;
+    width: 300px;
+    color: #a15756;
+    margin-top: 15px;
+    padding-top: 5px;
+    font-size: 25px;
+    justify-content: center; }
+    body .score .winning {
+      height: 45px;
+      width: 300px;
+      color: green;
+      margin-top: 15px;
+      margin-left: 500px;
+      padding-top: 5px;
+      font-size: 30px;
+      justify-content: center; }
+  body .shake {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite; }
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg); }
+  5% {
+    transform: translate(-1px, -2px) rotate(-0.5deg); }
+  10% {
+    transform: translate(-2px, 0px) rotate(0.5deg); }
+  15% {
+    transform: translate(2px, 2px) rotate(0deg); }
+  20% {
+    transform: translate(1px, -1px) rotate(0.5deg); }
+  25% {
+    transform: translate(-1px, 2px) rotate(-0.5deg); }
+  30% {
+    transform: translate(-2px, 1px) rotate(0deg); }
+  35% {
+    transform: translate(2px, 1px) rotate(-0.5deg); }
+  40% {
+    transform: translate(-1px, -1px) rotate(0.5deg); }
+  45% {
+    transform: translate(1px, 2px) rotate(0deg); }
+  50% {
+    transform: translate(1px, -2px) rotate(-0.5deg); }
+  55% {
+    transform: translate(1px, 1px) rotate(0deg); }
+  60% {
+    transform: translate(-1px, -2px) rotate(-0.5deg); }
+  65% {
+    transform: translate(-2px, 0px) rotate(0.5deg); }
+  70% {
+    transform: translate(2px, 2px) rotate(0deg); }
+  75% {
+    transform: translate(1px, -1px) rotate(0.5deg); }
+  80% {
+    transform: translate(-1px, 2px) rotate(-0.5deg); }
+  85% {
+    transform: translate(-2px, 1px) rotate(0deg); }
+  90% {
+    transform: translate(2px, 1px) rotate(-0.5deg); }
+  95% {
+    transform: translate(-1px, -1px) rotate(0.5deg); }
+  100% {
+    transform: translate(1px, 2px) rotate(0deg); } }
+.image {
   position: absolute;
   width: 50%;
   margin-left: 25%;
   margin-top: 10vh;
   top: 0px;
   animation: logoEnter 4s;
-  z-index: 0;
-}
+  z-index: 0; }
 
 @keyframes logoEnter {
   from {
-    opacity: 0;
-  }
+    opacity: 0; }
   to {
-    opacity: 1;
-  }
-} */
+    opacity: 1; } }
+
+/*# sourceMappingURL=style.css.map */

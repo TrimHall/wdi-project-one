@@ -1,0 +1,125 @@
+body {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: black;
+  .board {
+    display: flex;
+    justify-content: center;
+    background-image: url('../images/background2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 25px;
+    .container, .container-b, .container-c, .container-d {
+      position: relative;
+      height: 700px;
+      width: 200px;
+      background: rgba(40,40,40,0.3);
+      margin: 0 2px;
+      .note {
+        position: absolute;
+        height: 20px;
+        width: 80px;
+        margin-left: 60px;
+        background-color: yellow;
+        border-radius: 10px;
+        top: 0px;
+      } .target-a, .target-b,  .target-c,  .target-d {
+        position: relative;
+        height: 50px;
+        width: 180px;
+        background-color: #323131;
+        bottom: -650px;
+        margin-left: 10px;
+        border-radius: 10px;
+        transition: background-color 0.1s;
+      }
+      .hit {
+        background-color: yellow;
+      }
+    }
+  }
+  .load{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 0.5;
+    position: absolute;
+    top: 0px;
+    transition: background-color 2s linear;
+  }
+  .hide {
+    background-color: #ffffff00;
+  }
+  .score {
+    height: 35px;
+    width: 300px;
+    color: #a15756;
+    margin-top: 15px;
+    padding-top: 5px;
+    font-size: 25px;
+    justify-content: center;
+    .winning {
+      height: 45px;
+      width: 300px;
+      color: green;
+      margin-top: 15px;
+      margin-left: 500px;
+      padding-top: 5px;
+      font-size: 30px;
+      justify-content: center;
+    }
+  }
+  .shake {
+
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    5% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+    10% { transform: translate(-2px, 0px) rotate(.5deg); }
+    15% { transform: translate(2px, 2px) rotate(0deg); }
+    20% { transform: translate(1px, -1px) rotate(.5deg); }
+    25% { transform: translate(-1px, 2px) rotate(-0.5deg); }
+    30% { transform: translate(-2px, 1px) rotate(0deg); }
+    35% { transform: translate(2px, 1px) rotate(-0.5deg); }
+    40% { transform: translate(-1px, -1px) rotate(.5deg); }
+    45% { transform: translate(1px, 2px) rotate(0deg); }
+    50% { transform: translate(1px, -2px) rotate(-0.5deg); }
+    55% { transform: translate(1px, 1px) rotate(0deg); }
+    60% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+    65% { transform: translate(-2px, 0px) rotate(.5deg); }
+    70% { transform: translate(2px, 2px) rotate(0deg); }
+    75% { transform: translate(1px, -1px) rotate(.5deg); }
+    80% { transform: translate(-1px, 2px) rotate(-0.5deg); }
+    85% { transform: translate(-2px, 1px) rotate(0deg); }
+    90% { transform: translate(2px, 1px) rotate(-0.5deg); }
+    95% { transform: translate(-1px, -1px) rotate(.5deg); }
+    100% { transform: translate(1px, 2px) rotate(0deg); }
+  }
+}
+
+
+
+
+.image{
+position: absolute;
+width: 50%;
+margin-left: 25%;
+margin-top: 10vh;
+top: 0px;
+animation: logoEnter 4s;
+z-index: 0;
+}
+
+
+@keyframes logoEnter {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}

@@ -83,6 +83,7 @@ $(() => {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0,
     0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1,
     0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const board = document.querySelector('.board');
   const container = document.querySelector('.container');
   const containerB = document.querySelector('.container-b');
   const containerC = document.querySelector('.container-c');
@@ -91,7 +92,7 @@ $(() => {
   const targetB = document.querySelector('.target-b');
   const targetC = document.querySelector('.target-c');
   const targetD = document.querySelector('.target-d');
-  const missedNote = document.querySelector('.miss');
+  const soundEffect = document.querySelector('.effects');
   const scoreSpan = document.getElementById('score');
   const body = document.querySelector('body');
   const songLength = odeszaA.length * 250;
@@ -99,21 +100,28 @@ $(() => {
   const notesInPlayB = [];
   const notesInPlayC = [];
   const notesInPlayD = [];
-  missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
+  soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
+
+  let gameInPlay = false;
 
   //                                              **** OPENING SEQUENCE ****
   const loadPage = document.createElement('div');
   loadPage.classList.add('load');
-  loadPage.addEventListener('click', event => {
-    const audio = document.querySelector('.main');
-    audio.setAttribute('src', 'sounds/SayMyName120Bpm.mp3');
-    audio.play();
-    setTimeout(() => {
-      runProgram();
-    },4000 );
-    event.target.classList.add('hide');
-  });
+  loadPage.addEventListener('click', startGame);
   body.appendChild(loadPage);
+
+  function startGame(event) {
+    if (!gameInPlay) {
+      gameInPlay = true;
+      const audio = document.querySelector('.main');
+      audio.setAttribute('src', 'sounds/SayMyName120Bpm.mp3');
+      audio.play();
+      setTimeout(() => {
+        runProgram();
+      },4000 );
+      event.target.classList.add('hide');
+    }
+  }
 
   //                                      **** CHECKS ARRAY INDEX EVERY 250MS ****
   function runProgram() {
@@ -208,18 +216,34 @@ $(() => {
   function checkCol(notesInPlay, target) {
     const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
     // console.log(position);
-    if(position >= 620 && position <= 680){
+    if(position >= 620 && position <= 660){
       score = score+100;
-      updateScore();
+      currentStreak = currentStreak+1;
       target.classList.add('hit');
       setTimeout(() => {
         target.classList.remove('hit');
       }, 180);
     } else {
-      missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
-      missedNote.play();
+      soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
+      soundEffect.play();
       score = score-100;
-      updateScore();
+      currentStreak = 0;
+      board.classList.remove('shake');
+    }
+    updateScore();
+    checkCurrentStreak();
+  }
+
+  //******************************************** WIN STREAKS *************************
+  let currentStreak = 0;
+  function checkCurrentStreak () {
+    if(currentStreak === 20) {
+      soundEffect.setAttribute('src', 'sounds/crowd-cheer.mp3');
+      soundEffect.play();
+    } else if (currentStreak === 30) {
+      // target.container.
+    } else if (currentStreak === 50) {
+      board.classList.add('shake');
     }
   }
 });
