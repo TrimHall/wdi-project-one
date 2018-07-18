@@ -88,8 +88,21 @@ $(() => {
     0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1,
     0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  //************************************************* MISSED NOTES **************************************************************
+  const scoreSpan = document.getElementById('score');
+  const container = document.querySelector('.container');
+  const containerB = document.querySelector('.container-b');
+  const containerC = document.querySelector('.container-c');
+  const containerD = document.querySelector('.container-d');
+  const targetA = document.querySelector('.target-a');
+  const targetB = document.querySelector('.target-b');
+  const targetC = document.querySelector('.target-c');
+  const targetD = document.querySelector('.target-d');
+  const notesInPlay = [];
+  const notesInPlayB = [];
+  const notesInPlayC = [];
+  const notesInPlayD = [];
 
+  //************************************************* MISSED NOTES **************************************************************
   const missedNote = document.querySelector('.miss');
   missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
 
@@ -133,10 +146,26 @@ $(() => {
 
   const songLength = odeszaA.length * 250;
   //************************************************ SCORE KEEPER ********************************************************************
-  const scoreBox = document.querySelector('.score');
+  // const scoreBox = document.querySelector('.score');
   let score = 0;
+
   function updateScore() {
-    scoreBox.textContent = `Player 1 Score: ${score}`;
+    let oldScore = parseInt(scoreSpan.textContent) || 0;
+    const scoreInterval = setInterval(() => {
+      if (oldScore < score) {
+        if (oldScore >= score) {
+          clearInterval(scoreInterval);
+        }
+        scoreSpan.textContent = oldScore;
+        oldScore += 2;
+      } else {
+        if (oldScore <= score) {
+          clearInterval(scoreInterval);
+        }
+        scoreSpan.textContent = oldScore;
+        oldScore -= 2;
+      }
+    }, 5);
   }
   //******************************************** THIS WILL TRIGGER THE DIVS ********************************************************
   let i = 0;
@@ -147,18 +176,6 @@ $(() => {
     }
   }
   // *************************************************** CREATE/KILL NOTES BUTTON A **********************************************************
-  const container = document.querySelector('.container');
-  const containerB = document.querySelector('.container-b');
-  const containerC = document.querySelector('.container-c');
-  const containerD = document.querySelector('.container-d');
-  const targetA = document.querySelector('.target-a');
-  const targetB = document.querySelector('.target-b');
-  const targetC = document.querySelector('.target-c');
-  const targetD = document.querySelector('.target-d');
-  const notesInPlay = [];
-  const notesInPlayB = [];
-  const notesInPlayC = [];
-  const notesInPlayD = [];
 
   function create(container, notesInPlay) {
     const newNote = document.createElement('div');
