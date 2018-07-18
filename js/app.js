@@ -1,5 +1,4 @@
 $(() => {
-  //*******************************************************************************************************************************************
   const odeszaD = [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -21,7 +20,6 @@ $(() => {
     1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0,
     1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    //*******************************************************************************************************************************************
   const odeszaC = [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0,
     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0,
@@ -43,7 +41,6 @@ $(() => {
     0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  //*******************************************************************************************************************************************
   const odeszaB = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
@@ -65,7 +62,6 @@ $(() => {
     0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0,
     0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  //*******************************************************************************************************************************************
   const odeszaA = [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0,
     0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0,
     0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0,
@@ -87,8 +83,6 @@ $(() => {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0,
     0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1,
     0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-  const scoreSpan = document.getElementById('score');
   const container = document.querySelector('.container');
   const containerB = document.querySelector('.container-b');
   const containerC = document.querySelector('.container-c');
@@ -97,28 +91,22 @@ $(() => {
   const targetB = document.querySelector('.target-b');
   const targetC = document.querySelector('.target-c');
   const targetD = document.querySelector('.target-d');
+  const missedNote = document.querySelector('.miss');
+  const scoreSpan = document.getElementById('score');
+  const body = document.querySelector('body');
+  const songLength = odeszaA.length * 250;
   const notesInPlay = [];
   const notesInPlayB = [];
   const notesInPlayC = [];
   const notesInPlayD = [];
-
-  //************************************************* MISSED NOTES **************************************************************
-  const missedNote = document.querySelector('.miss');
   missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
 
-  //******************************************** THIS WILL PLAY THE SONG ********************************************************
-  const body = document.querySelector('body');
+  //                                              **** OPENING SEQUENCE ****
   const loadPage = document.createElement('div');
   loadPage.classList.add('load');
-  // const logo = document.createElement('img');
-  // logo.classList.add('image');
-  // logo.setAttribute('src', 'images/odesza-logo.png');
-  // logo.classList.add('hide');
-
   loadPage.addEventListener('click', event => {
     const audio = document.querySelector('.main');
     audio.setAttribute('src', 'sounds/SayMyName120Bpm.mp3');
-
     audio.play();
     setTimeout(() => {
       runProgram();
@@ -126,10 +114,8 @@ $(() => {
     event.target.classList.add('hide');
   });
   body.appendChild(loadPage);
-  // loadPage.appendChild(logo);
 
-  // SPACE RESETS THE TRACK - NEEDS A DEBUG
-  //***************************************** 250 = QUARTER NOTES, 125 = 8TH NOTES *************************************************
+  //                                      **** CHECKS ARRAY INDEX EVERY 250MS ****
   function runProgram() {
     const timing = setInterval(() => {
       fireNotesA();
@@ -144,9 +130,7 @@ $(() => {
     }, songLength);
   }
 
-  const songLength = odeszaA.length * 250;
-  //************************************************ SCORE KEEPER ********************************************************************
-  // const scoreBox = document.querySelector('.score');
+  //                                                  **** SCORE KEEPER ****
   let score = 0;
 
   function updateScore() {
@@ -167,7 +151,7 @@ $(() => {
       }
     }, 5);
   }
-  //******************************************** THIS WILL TRIGGER THE DIVS ********************************************************
+  //                                                 **** FIRES NOTES ****
   let i = 0;
 
   function fireNotesA() {
@@ -175,53 +159,6 @@ $(() => {
       create(container, notesInPlay);
     }
   }
-  // *************************************************** CREATE/KILL NOTES BUTTON A **********************************************************
-
-  function create(container, notesInPlay) {
-    const newNote = document.createElement('div');
-    container.appendChild(newNote);
-    newNote.classList.add('note');
-    notesInPlay.push(newNote);
-    newNote.animate([
-      {transform: 'translateY(0px)'},
-      {transform: 'translateY(680px)'}
-    ], 4000);
-    setTimeout(() => {
-      notesInPlay.splice(0, 1);
-      newNote.remove();
-    }, 4000);
-  }
-
-  $(window).keydown(function(e) {
-    if (e.which === 90) {
-      checkCol(notesInPlay, targetA);
-    } else if (e.which === 88) {
-      checkCol(notesInPlayB, targetB);
-    } else if (e.which === 67) {
-      checkCol(notesInPlayC, targetC);
-    } else if (e.which === 86) {
-      checkCol(notesInPlayD, targetD);
-    }
-  });
-
-  function checkCol(notesInPlay, target) {
-    const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
-    // console.log(position);
-    if(position >= 620 && position <= 680){
-      score = score+100;
-      updateScore();
-      target.classList.add('hit');
-      setTimeout(() => {
-        target.classList.remove('hit');
-      }, 180);
-    } else {
-      missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
-      missedNote.play();
-      score = score-100;
-      updateScore();
-    }
-  }
-
   function fireNotesB() {
     if(odeszaB[i] === 1){
       create(containerB, notesInPlayB);
@@ -239,5 +176,50 @@ $(() => {
       create(containerD, notesInPlayD);
     }
   }
+  //                                       **** CREATE/KILL NOTES BUTTON A ****
 
+  function create(container, notesInPlay) {
+    const newNote = document.createElement('div');
+    container.appendChild(newNote);
+    newNote.classList.add('note');
+    notesInPlay.push(newNote);
+    newNote.animate([
+      {transform: 'translateY(0px)'},
+      {transform: 'translateY(680px)'}
+    ], 4000);
+    setTimeout(() => {
+      notesInPlay.splice(0, 1);
+      newNote.remove();
+    }, 4000);
+  }
+  //                                       **** KEY PRESSES / COLLISSIONS ****
+  $(window).keydown(function(e) {
+    if (e.which === 90) {
+      checkCol(notesInPlay, targetA);
+    } else if (e.which === 88) {
+      checkCol(notesInPlayB, targetB);
+    } else if (e.which === 67) {
+      checkCol(notesInPlayC, targetC);
+    } else if (e.which === 86) {
+      checkCol(notesInPlayD, targetD);
+    }
+  });
+  //                                         **** COLLISION DETECTION ****
+  function checkCol(notesInPlay, target) {
+    const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
+    // console.log(position);
+    if(position >= 620 && position <= 680){
+      score = score+100;
+      updateScore();
+      target.classList.add('hit');
+      setTimeout(() => {
+        target.classList.remove('hit');
+      }, 180);
+    } else {
+      missedNote.setAttribute('src', 'sounds/bum-note1.mp3');
+      missedNote.play();
+      score = score-100;
+      updateScore();
+    }
+  }
 });
