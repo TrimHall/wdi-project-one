@@ -172,15 +172,15 @@ $(() => {
           clearInterval(scoreInterval);
         }
         scoreSpan.textContent = oldScore;
-        oldScore += 4;
+        oldScore += 5;
       } else {
         if (oldScore <= score) {
           clearInterval(scoreInterval);
         }
         scoreSpan.textContent = oldScore;
-        oldScore -= 4;
+        oldScore -= 5;
       }
-    }, 5);
+    }, 3);
   }
   //                                                 **** FIRES NOTES ****
   let i = 0;
