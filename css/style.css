@@ -35,7 +35,8 @@ body {
         transition: background-color 0.1s; }
       body .board .container .notePulse, body .board .container-b .notePulse, body .board .container-c .notePulse, body .board .container-d .notePulse {
         animation: notePulse 1s;
-        animation-iteration-count: infinite; }
+        animation-iteration-count: infinite;
+        background-color: #71FC6F; }
       body .board .container .hit, body .board .container-b .hit, body .board .container-c .hit, body .board .container-d .hit {
         background-color: yellow; }
   body .load {
@@ -55,8 +56,9 @@ body {
   body .title {
     color: white;
     font-family: 'Rajdhani', sans-serif;
-    font-size: 25px;
-    font-weight: bold; }
+    font-size: 30px;
+    font-weight: bold;
+    animation: title-fade 5s; }
   body .logo {
     width: auto;
     height: 50%;
@@ -93,7 +95,7 @@ body {
   animation: glow 2s;
   animation-iteration-count: infinite; }
 
-.message, .message1, .message2 {
+.message, .message1, .message4, .message2, .message3 {
   opacity: 0;
   color: #0DFB09;
   position: fixed;
@@ -104,11 +106,17 @@ body {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 600; }
 
-.message1 {
-  left: 200px; }
+.message1, .message4 {
+  left: 400px; }
 
-.message2 {
-  left: 450px; }
+.message2, .message3 {
+  left: 225px; }
+
+.message3 {
+  color: #FF4141; }
+
+.message4 {
+  color: #FF4141; }
 
 .animate-message {
   font-size: 100px;
@@ -116,8 +124,8 @@ body {
   transform: scale(0);
   left: 0px;
   top: calc(100vh - 200px);
-  transition-duration: 500ms, 1000ms, 1000ms, 1000ms;
-  transition-delay: 0ms, 500ms, 800ms, 500ms;
+  transition-duration: 500ms, 2000ms, 1500ms, 1000ms;
+  transition-delay: 0ms, 500ms, 1200ms, 500ms;
   transition-property: opacity, left, top, transform; }
 
 @keyframes glow {
@@ -147,6 +155,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0; } }
+@keyframes title-fade {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg); }

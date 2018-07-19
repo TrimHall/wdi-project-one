@@ -100,6 +100,7 @@ $(() => {
   const notesInPlayB = [];
   const notesInPlayC = [];
   const notesInPlayD = [];
+  let noteCount = 0;
   soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
 
 
@@ -127,7 +128,10 @@ $(() => {
   let gameInPlay = false;
 
   function startGame() {
-    console.log('clicked');
+    i=0;
+    noteCount=0;
+    score=0;
+    clearCurrentStreak();
     if (!gameInPlay) {
       gameInPlay = true;
       const audio = document.querySelector('.main');
@@ -137,9 +141,6 @@ $(() => {
         runProgram();
       },4000 );
       loadPage.classList.add('hide');
-      // loadPage.style.display = 'none';
-      // logo.classList.add('hide');
-
     }
   }
 
@@ -152,6 +153,8 @@ $(() => {
       fireNotesD();
       updateScore();
       i++;
+      noteCount ++;
+      endGame();
     }, 250);
     setTimeout(() => {
       clearInterval(timing);
@@ -169,13 +172,13 @@ $(() => {
           clearInterval(scoreInterval);
         }
         scoreSpan.textContent = oldScore;
-        oldScore += 2;
+        oldScore += 4;
       } else {
         if (oldScore <= score) {
           clearInterval(scoreInterval);
         }
         scoreSpan.textContent = oldScore;
-        oldScore -= 2;
+        oldScore -= 4;
       }
     }, 5);
   }
@@ -235,9 +238,9 @@ $(() => {
   //                                         **** COLLISION DETECTION ****
   function checkCol(notesInPlay, target) {
     const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
-    // console.log(position);
-    if(position >= 610 && position <= 670){
-      score = score+100;
+    if(position >= 590 && position <= 680){
+      score = score+25;
+      showMessage('+25', 'message2');
       currentStreak = currentStreak+1;
       target.classList.add('hit');
 
@@ -246,27 +249,18 @@ $(() => {
       }, 180);
     } else {
       soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
+      soundEffect.volume = 0.2;
       soundEffect.play();
-      score = score-100;
+      score = score-25;
       currentStreak = 0;
+      showMessage('-25', 'message3');
       clearCurrentStreak();
     }
     updateScore();
     checkCurrentStreak();
   }
 
-  //                                            **** WIN STREAKS ****
-
-  //TO DO:
-  //sort out some great/good/perfect animations
-  //animate the notes to pulse
-  //progress bar up the side to show where the next streak is?
-  //double scoring from cS-40 upwards
-  //
-
-  // showMessage('Pressed 90!!!', 'message2');
-
-
+  //                                              **** MESSAGES ****
   function showMessage(message, className) {
     const msgDiv = document.createElement('div');
     msgDiv.textContent = message;
@@ -278,34 +272,37 @@ $(() => {
     }, 3000);
   }
 
-
+  //                                            **** WIN STREAKS ****
   let currentStreak = 0;
   function checkCurrentStreak () {
-    if(currentStreak === 2) {
+    if(currentStreak === 10) {
+      showMessage('10 in a row!', 'message1');
+    } else  if(currentStreak === 20) {
       soundEffect.setAttribute('src', 'sounds/crowd-cheer.mp3');
+      soundEffect.volume = 0.3;
       soundEffect.play();
-      showMessage('Win Streak!', 'message2');
-      console.log(currentStreak);
+      score = score+500;
+      showMessage('+500', 'message1');
     } if (currentStreak > 30) {
       console.log(currentStreak);
       notesInPlay.forEach(note => note.classList.add('notePulse'));
       notesInPlayB.forEach(note => note.classList.add('notePulse'));
       notesInPlayC.forEach(note => note.classList.add('notePulse'));
       notesInPlayD.forEach(note => note.classList.add('notePulse'));
-    } if (currentStreak === 40) {
-      console.log(currentStreak);
+    } if(currentStreak === 30) {
       score = score+1000;
-      scoreSpan.classList.add('winning'); // winning animate to center to bring score up
-      setTimeout(() => {
-        scoreSpan.classList.remove('winning');
-      }, 3000);
-    }else if (currentStreak === 50) {
-      console.log(currentStreak);
+      showMessage('+1000!', 'message1');
+    }if (currentStreak === 40) {
+      score = score+1500;
+      showMessage('+1000!', 'message1');
       body.classList.add('background-glow');
+    } else if (currentStreak === 50) {
+      showMessage('DAVE\'S IN TEARS! +5000!', 'message1');
       board.classList.add('shake');
+      score=score+5000;
     }
   }
-
+  //                                            **** CLEAR STREAKS ****
   function clearCurrentStreak() {
     board.classList.remove('shake');
     body.classList.remove('background-glow');
@@ -313,5 +310,23 @@ $(() => {
     notesInPlayB.forEach(note => note.classList.remove('notePulse'));
     notesInPlayC.forEach(note => note.classList.remove('notePulse'));
     notesInPlayD.forEach(note => note.classList.remove('notePulse'));
+  }
+
+  //                                              **** PLAY AGAIN? *****
+  function endGame() {
+    if(noteCount === odeszaA.length){
+      console.log(noteCount);
+      setTimeout(() => {
+        if(score>0){
+          title.textContent = `You scored ${score}. You're Better Than Guetta!`;
+        } else {
+          title.textContent = `You scored ${score}. David Guetta beat you...`;
+        }
+        ready.textContent = 'Click to play again...';
+        loadPage.classList.remove('hide');
+        gameInPlay = false;
+        loadPage.addEventListener('click', startGame);
+      }, 2000);
+    }
   }
 });
