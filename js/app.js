@@ -102,7 +102,6 @@ $(() => {
   const notesInPlayD = [];
   soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
 
-  let gameInPlay = false;
 
   //                                              **** OPENING SEQUENCE ****
   const loadPage = document.createElement('div');
@@ -110,7 +109,25 @@ $(() => {
   loadPage.addEventListener('click', startGame);
   body.appendChild(loadPage);
 
-  function startGame(event) {
+  const title = document.createElement('p');
+  title.classList.add('title');
+  loadPage.appendChild(title);
+  title.textContent = 'Better Than Guetta';
+
+  const logo = document.createElement('img');
+  logo.setAttribute('src', 'images/odesza-logo.png');
+  logo.classList.add('logo');
+  loadPage.appendChild(logo);
+
+  const ready = document.createElement('p');
+  ready.classList.add('ready');
+  loadPage.appendChild(ready);
+  ready.textContent = 'Click when ready...';
+
+  let gameInPlay = false;
+
+  function startGame() {
+    console.log('clicked');
     if (!gameInPlay) {
       gameInPlay = true;
       const audio = document.querySelector('.main');
@@ -119,7 +136,10 @@ $(() => {
       setTimeout(() => {
         runProgram();
       },4000 );
-      event.target.classList.add('hide');
+      loadPage.classList.add('hide');
+      // loadPage.style.display = 'none';
+      // logo.classList.add('hide');
+
     }
   }
 
@@ -220,6 +240,7 @@ $(() => {
       score = score+100;
       currentStreak = currentStreak+1;
       target.classList.add('hit');
+
       setTimeout(() => {
         target.classList.remove('hit');
       }, 180);
@@ -228,13 +249,13 @@ $(() => {
       soundEffect.play();
       score = score-100;
       currentStreak = 0;
-      board.classList.remove('shake');
+      clearCurrentStreak();
     }
     updateScore();
     checkCurrentStreak();
   }
 
-  //******************************************** WIN STREAKS *************************
+  //                                            **** WIN STREAKS ****
 
   //TO DO:
   //sort out some great/good/perfect animations
@@ -243,24 +264,54 @@ $(() => {
   //double scoring from cS-40 upwards
   //
 
+  // showMessage('Pressed 90!!!', 'message2');
+
+
+  function showMessage(message, className) {
+    const msgDiv = document.createElement('div');
+    msgDiv.textContent = message;
+    msgDiv.classList.add(className);
+    body.append(msgDiv);
+    setTimeout(() => msgDiv.classList.add('animate-message'), 20);
+    setTimeout(() => {
+      body.removeChild(msgDiv);
+    }, 3000);
+  }
+
 
   let currentStreak = 0;
   function checkCurrentStreak () {
-    if(currentStreak === 20) {
+    if(currentStreak === 2) {
       soundEffect.setAttribute('src', 'sounds/crowd-cheer.mp3');
       soundEffect.play();
+      showMessage('Win Streak!', 'message2');
       console.log(currentStreak);
-    } else if (currentStreak === 30) {
+    } if (currentStreak > 30) {
       console.log(currentStreak);
-    } else if (currentStreak === 40) {
+      notesInPlay.forEach(note => note.classList.add('notePulse'));
+      notesInPlayB.forEach(note => note.classList.add('notePulse'));
+      notesInPlayC.forEach(note => note.classList.add('notePulse'));
+      notesInPlayD.forEach(note => note.classList.add('notePulse'));
+    } if (currentStreak === 40) {
+      console.log(currentStreak);
       score = score+1000;
       scoreSpan.classList.add('winning'); // winning animate to center to bring score up
       setTimeout(() => {
         scoreSpan.classList.remove('winning');
       }, 3000);
-      console.log(currentStreak);
     }else if (currentStreak === 50) {
+      console.log(currentStreak);
+      body.classList.add('background-glow');
       board.classList.add('shake');
     }
+  }
+
+  function clearCurrentStreak() {
+    board.classList.remove('shake');
+    body.classList.remove('background-glow');
+    notesInPlay.forEach(note => note.classList.remove('notePulse'));
+    notesInPlayB.forEach(note => note.classList.remove('notePulse'));
+    notesInPlayC.forEach(note => note.classList.remove('notePulse'));
+    notesInPlayD.forEach(note => note.classList.remove('notePulse'));
   }
 });
