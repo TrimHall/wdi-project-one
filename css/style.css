@@ -25,6 +25,9 @@ body {
         border-radius: 10px;
         top: 0px; }
       body .board .container .target-a, body .board .container .target-b, body .board .container .target-c, body .board .container .target-d, body .board .container-b .target-a, body .board .container-b .target-b, body .board .container-b .target-c, body .board .container-b .target-d, body .board .container-c .target-a, body .board .container-c .target-b, body .board .container-c .target-c, body .board .container-c .target-d, body .board .container-d .target-a, body .board .container-d .target-b, body .board .container-d .target-c, body .board .container-d .target-d {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: relative;
         height: 50px;
         width: 180px;
@@ -33,6 +36,13 @@ body {
         margin-left: 10px;
         border-radius: 10px;
         transition: background-color 0.1s; }
+        body .board .container .target-a.controls, body .board .container .target-b.controls, body .board .container .target-c.controls, body .board .container .target-d.controls, body .board .container-b .target-a.controls, body .board .container-b .target-b.controls, body .board .container-b .target-c.controls, body .board .container-b .target-d.controls, body .board .container-c .target-a.controls, body .board .container-c .target-b.controls, body .board .container-c .target-c.controls, body .board .container-c .target-d.controls, body .board .container-d .target-a.controls, body .board .container-d .target-b.controls, body .board .container-d .target-c.controls, body .board .container-d .target-d.controls {
+          color: #76797f;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 20px;
+          font-weight: 700;
+          animation: logoEnter 1s;
+          animation-iteration-count: 7; }
       body .board .container .notePulse, body .board .container-b .notePulse, body .board .container-c .notePulse, body .board .container-d .notePulse {
         animation: notePulse 1s;
         animation-iteration-count: infinite;

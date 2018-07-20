@@ -119,6 +119,17 @@ $(() => {
   let noteCount = 0;
   soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
 
+  targetA.classList.add('controls');
+  targetB.classList.add('controls');
+  targetC.classList.add('controls');
+  targetD.classList.add('controls');
+  targetA.textContent = ('Z');
+  targetB.textContent = ('X');
+  targetC.textContent = ('C');
+  targetD.textContent = ('V');
+
+
+
   //                                              **** OPENING SEQUENCE ****
   const loadPage = document.createElement('div');
   loadPage.classList.add('load');
@@ -155,7 +166,14 @@ $(() => {
       setTimeout(() => {
         runProgram();
       },4000 );
+      setTimeout(() => {
+        targetA.textContent = ('');
+        targetB.textContent = ('');
+        targetC.textContent = ('');
+        targetD.textContent = ('');
+      }, 6000);
       loadPage.classList.add('hide');
+
     }
   }
 
@@ -234,6 +252,9 @@ $(() => {
     ], 4000);
     setTimeout(() => {
       notesInPlay.splice(0, 1);
+      if (!newNote.classList.contains('was-hit')) {
+        missedNote();
+      }
       newNote.remove();
     }, 4000);
   }
@@ -251,8 +272,11 @@ $(() => {
   });
   //                                         **** COLLISION DETECTION ****
   function checkCol(notesInPlay, target) {
-    const position = parseFloat(window.getComputedStyle(notesInPlay[0]).transform.split(',')[5]);
+    const currentNote = notesInPlay[0];
+    const position = parseFloat(window.getComputedStyle(currentNote).transform.split(',')[5]);
     if(position >= 590 && position <= 680){
+      // we've hit a note!
+      currentNote.classList.add('was-hit');
       score = score+25;
       showMessage('+25', 'message2');
       currentStreak = currentStreak+1;
@@ -262,17 +286,25 @@ $(() => {
         target.classList.remove('hit');
       }, 180);
     } else {
-      soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
-      soundEffect.volume = 0.2;
-      soundEffect.play();
-      score = score-25;
-      currentStreak = 0;
-      showMessage('-25', 'message3');
-      clearCurrentStreak();
+      missedNote();
     }
     updateScore();
     checkCurrentStreak();
   }
+
+  function missedNote() {
+    soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
+    soundEffect.volume = 0.2;
+    soundEffect.play();
+    score = score-25;
+    currentStreak = 0;
+    showMessage('-25', 'message3');
+    clearCurrentStreak();
+  }
+
+
+
+
 
   //                                              **** MESSAGES ****
   function showMessage(message, className) {
