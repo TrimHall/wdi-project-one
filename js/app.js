@@ -193,7 +193,6 @@ $(() => {
       clearInterval(timing);
     }, songLength);
   }
-
   //                                                  **** SCORE KEEPER ****
   let score = 0;
 
@@ -276,7 +275,6 @@ $(() => {
     const currentNote = notesInPlay[0];
     const position = parseFloat(window.getComputedStyle(currentNote).transform.split(',')[5]);
     if(position >= 550 && position <= 680){
-      // we've hit a note!
       currentNote.classList.add('was-hit');
       score = score+25;
       showMessage('+25', 'message2');
@@ -366,6 +364,7 @@ $(() => {
         ready.textContent = 'Click to play again...';
         loadPage.classList.remove('hide');
         scoreSpan.textContent = '';
+        gameInPlay = false;
         loadPage.addEventListener('click', startGame);
       }, 2000);
     }
