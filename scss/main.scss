@@ -82,14 +82,18 @@ body {
     animation-iteration-count: infinite;
   }
   .score {
-    height: 35px;
+    position:absolute;
+    height: 20px;
     width: 300px;
-    color: #a15756;
+    color: white;
     margin-top: 15px;
-    margin-left: 60px;
+    margin-left: 10px;
     padding-top: 5px;
-    font-size: 25px;
+    font-size: 35px;
     justify-content: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    top: 125px;
     .winning {
       height: 350px;
       width: 6600px;
@@ -130,6 +134,7 @@ body {
 .message1 {
   @extend .message;
   left: 400px;
+  color: rgba(248, 243, 93, 0.7);
 }
 
 .message2 {
