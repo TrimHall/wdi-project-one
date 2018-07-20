@@ -118,7 +118,6 @@ $(() => {
   const notesInPlayD = [];
   let noteCount = 0;
   soundEffect.setAttribute('src', 'sounds/bum-note1.mp3');
-
   targetA.classList.add('controls');
   targetB.classList.add('controls');
   targetC.classList.add('controls');
@@ -128,12 +127,14 @@ $(() => {
   targetC.textContent = ('C');
   targetD.textContent = ('V');
 
-
-
   //                                              **** OPENING SEQUENCE ****
   const loadPage = document.createElement('div');
   loadPage.classList.add('load');
-  loadPage.addEventListener('click', startGame);
+  loadPage.addEventListener('click', () => {
+    if(!gameInPlay){
+      startGame();
+    }
+  });
   body.appendChild(loadPage);
 
   const title = document.createElement('p');
@@ -173,7 +174,6 @@ $(() => {
         targetD.textContent = ('');
       }, 6000);
       loadPage.classList.add('hide');
-
     }
   }
 
@@ -200,19 +200,20 @@ $(() => {
   function updateScore() {
     let oldScore = parseInt(scoreSpan.textContent) || 0;
     const scoreInterval = setInterval(() => {
+      let increment = 0;
       if (oldScore < score) {
         if (oldScore >= score) {
           clearInterval(scoreInterval);
         }
-        scoreSpan.textContent = oldScore;
-        oldScore += 5;
       } else {
         if (oldScore <= score) {
           clearInterval(scoreInterval);
         }
-        scoreSpan.textContent = oldScore;
-        oldScore -= 5;
       }
+      increment = Math.ceil((score - oldScore) / 30);
+      scoreSpan.textContent = oldScore;
+      oldScore += increment;
+      console.log(`Old score: ${oldScore}, New score: ${score}, Increment: ${increment}`);
     }, 3);
   }
   //                                                 **** FIRES NOTES ****
@@ -274,7 +275,7 @@ $(() => {
   function checkCol(notesInPlay, target) {
     const currentNote = notesInPlay[0];
     const position = parseFloat(window.getComputedStyle(currentNote).transform.split(',')[5]);
-    if(position >= 590 && position <= 680){
+    if(position >= 550 && position <= 680){
       // we've hit a note!
       currentNote.classList.add('was-hit');
       score = score+25;
@@ -301,10 +302,6 @@ $(() => {
     showMessage('-25', 'message3');
     clearCurrentStreak();
   }
-
-
-
-
 
   //                                              **** MESSAGES ****
   function showMessage(message, className) {
@@ -360,7 +357,6 @@ $(() => {
   //                                              **** PLAY AGAIN? *****
   function endGame() {
     if(noteCount === odeszaA.length){
-      console.log(noteCount);
       setTimeout(() => {
         if(score>0){
           title.textContent = `You scored ${score}. You're Better Than Guetta!`;
@@ -369,7 +365,6 @@ $(() => {
         }
         ready.textContent = 'Click to play again...';
         loadPage.classList.remove('hide');
-        gameInPlay = false;
         scoreSpan.textContent = '';
         loadPage.addEventListener('click', startGame);
       }, 2000);
