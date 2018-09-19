@@ -5,11 +5,11 @@
 
 To create a single page, browser hosted game using all of the tools and technologies I had learned during the first three weeks of the WDI course at General Assembly. 
 
-## Instructions:
+# Instructions:
 
 Play the notes as they reach the target area at the bottom of the game board.
 
-# Win Streaks
+## Win Streaks
 
 > - 10 notes corrently and in succession to trigger a message
 > - 20 notes to get the crowd cheering
@@ -17,14 +17,14 @@ Play the notes as they reach the target area at the bottom of the game board.
 > - 40 notes correctly and in succession for a glowing game board background
 > - 50 notes for a glowing and shaking game play area
 
-# Controls 
+## Controls 
 
 > - `Z` for the 1st column notes
 > - `X` for the 2nd column notes
 > - `C` for the 3rd column notes
 > - `V` for the 4th column notes
 
-## Technologies Used:
+# Technologies Used:
 
 > - Vanilla Javascript
 > - SASS
@@ -35,9 +35,9 @@ Play the notes as they reach the target area at the bottom of the game board.
 > - Atom
 > - GitHub
 
-## Approach
+# Approach
 
-#Planning:
+## Planning:
 
 I planned that MVP would be a single column with collision detection for the notes and ability to score points if the user pressed the correct key at the right time. The next step was psudocoding the processes involved that I didn't already know how to do, such as figuring out how to 'fire' a note in time with the music, detect a collision etc. 
 
