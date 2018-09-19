@@ -43,5 +43,5 @@ I planned that MVP would be a single column with collision detection for the not
 
 I then planned out what function I would need and started to build a very basic version of the game. 
 
-<img src="https://imgur.com/a/bUCHfdw" width="250" height="250">
+<p align="center"><img src="https://imgur.com/a/bUCHfdw"></p>
 
