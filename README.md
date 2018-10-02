@@ -44,3 +44,11 @@ I planned that MVP would be a single column with collision detection for the not
 I then planned out what function I would need and started to build a very basic version of the game.
 
 <p align="center"><img src="[Imgur](https://i.imgur.com/1LBG1wP.gifv)"></p>
+
+# Wins:
+
+CSS Animations - on the final day of the project I started to play around with a few CSS animations to make the gameplay more exciting as it progresses through the level. I was able to incorporate visual and audio "win streaks" to increase the intensity of the game.
+
+Collisions - For my collision detection, I created an arrays of "active notes" which are currently on the game board. I then used forEach loops and computed values to see if any of the notes are in the target area when the user presses a corresponding key. This took a bit of research and some trial and error - but eventually, I got it working!
+
+Blockers - Timing the notes. This was a tricky problem to solve as the notes would need to "fire" and then arrive in the target area at the right time, in order for the player to be able to score points in time with the audio. I used a set time out to loop through arrays of 1s and 0s to detect if the current note was a "rest" or "note". Writing these arrays was quite time consuming.
